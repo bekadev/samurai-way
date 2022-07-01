@@ -11,23 +11,22 @@ import {Settings} from "./components/Settings/Settings";
 import {MainInfo, MainInfoPropsType} from "./components/Main/MainInfo/MainInfo";
 import {PostDareType} from "./components/Main/MyPosts/MyPosts";
 
-function App(props: PostDareType & DialogsDataType & MessageDataType) {
+type PropsType = {
+    state: PostDareType & DialogsDataType & MessageDataType
+}
 
-
-
-
-    // @ts-ignore
+function App(props: PropsType) {
     return (
         <BrowserRouter>
-            <p>beka</p>
             <div className="App">
+                <p>dfasda</p>
                 <Header/>
                 <div className='elementFlex'>
                     <Navbar/>
                     <Route path='/dialogs' render={() => <Dialogs
-                        dialogsData={props.dialogsData}
-                        messageData={props.messageData}/>}/>
-                    <Route path='/main' render={() => <Main postData={props.postData}
+                        dialogsData={props.state.dialogsData}
+                        messageData={props.state.messageData}/>}/>
+                    <Route path='/main' render={() => <Main postData={props.state.postData}
                                                             name='Bekzat K.'
                                                             date='25 February'
                                                             city='Almaty'
