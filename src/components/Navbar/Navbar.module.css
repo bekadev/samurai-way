@@ -1,0 +1,27 @@
+.aside {
+    background-color: cornflowerblue;
+    width: 300px;
+    height: 700px;
+    padding: 10px 10px;
+}
+
+.active {
+    color: darkolivegreen;
+}
+
+.item a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+
+}
+
+.item a.active{
+    text-decoration: none;
+    color: darkolivegreen;
+    margin-bottom: 10px;
+}
+
+.aside_settings {
+    margin-top: 50px;
+}

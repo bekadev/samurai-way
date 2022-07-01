@@ -1,0 +1,14 @@
+.flex {
+    display: flex;
+}
+
+.main_user{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.info {
+    font-size: 20px;
+    line-height: 2px;
+}
