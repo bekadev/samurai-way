@@ -19,11 +19,12 @@ function App(props: PropsType) {
     return (
         <BrowserRouter>
             <div className="App">
-                <p>dfasda</p>
+                <p>hi</p>
                 <Header/>
                 <div className='elementFlex'>
                     <Navbar/>
-                    <Route path='/dialogs' render={() => <Dialogs
+                    <Route
+                        path='/dialogs' render={() => <Dialogs
                         dialogsData={props.state.dialogsData}
                         messageData={props.state.messageData}/>}/>
                     <Route path='/main' render={() => <Main postData={props.state.postData}
