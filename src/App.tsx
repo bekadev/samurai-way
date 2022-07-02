@@ -19,7 +19,6 @@ function App(props: PropsType) {
     return (
         <BrowserRouter>
             <div className="App">
-                <p>hi</p>
                 <Header/>
                 <div className='elementFlex'>
                     <Navbar/>

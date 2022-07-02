@@ -7,6 +7,7 @@ type PostDataType = {
     message: string
 }
 
+
 export type PostDareType = {
     postData: PostDataType[]
 }
