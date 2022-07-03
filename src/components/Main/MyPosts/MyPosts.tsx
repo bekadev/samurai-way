@@ -5,6 +5,11 @@ import {Post} from "./Post/Post";
 type PostDataType = {
     id: number,
     message: string
+
+}
+
+export type addPostPropsType = {
+    addPost: (postText: string) => void
 }
 
 
@@ -13,19 +18,26 @@ export type PostDareType = {
 }
 
 
-export const MyPosts = (props: PostDareType) => {
+export const MyPosts = (props: PostDareType & addPostPropsType) => {
 
     let postElements = props.postData.map(p => <Post message={p.message}/>)
 
+    let newPostElement = React.createRef<HTMLInputElement>()
+
+    const onClickHandler = () => {
+        if (newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+        }
+    }
 
     return (
         <div>
             <p>
                 My posts
             </p>
-            <input className={s.input} type="text"/>
+            <input ref={newPostElement}  className={s.input} type="text"/>
             <br/>
-            <button>Send</button>
+            <button onClick={onClickHandler}>Send</button>
             <div className={s.posts}>
                 {postElements}
             </div>

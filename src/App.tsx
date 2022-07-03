@@ -10,6 +10,7 @@ import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 import {MainInfo, MainInfoPropsType} from "./components/Main/MainInfo/MainInfo";
 import {PostDareType} from "./components/Main/MyPosts/MyPosts";
+import {addPost} from './redux/state'
 
 type PropsType = {
     state: PostDareType & DialogsDataType & MessageDataType
@@ -17,28 +18,29 @@ type PropsType = {
 
 function App(props: PropsType) {
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header/>
-                <div className='elementFlex'>
-                    <Navbar/>
-                    <Route
-                        path='/dialogs' render={() => <Dialogs
-                        dialogsData={props.state.dialogsData}
-                        messageData={props.state.messageData}/>}/>
-                    <Route path='/main' render={() => <Main postData={props.state.postData}
-                                                            name='Bekzat K.'
-                                                            date='25 February'
-                                                            city='Almaty'
-                                                            education='KAU'
-                                                            website='bekapng.kz'/>}/>
-                    <Route path='/news' render={() => <News />}/>
-                    <Route path='/music' render={() => <Music />}/>
-                    <Route path='/settings' render={() => <Settings />}/>
-                </div>
-
+        <div className="App">
+            <Header/>
+            <div className='elementFlex'>
+                <Navbar/>
+                <Route
+                    path='/dialogs' render={() => <Dialogs
+                    dialogsData={props.state.dialogsData}
+                    messageData={props.state.messageData}/>}/>
+                <Route
+                    path='/main'
+                    render={() => <Main
+                        addPost={addPost}
+                        postData={props.state.postData}
+                        name='Bekzat K.'
+                        date='25 February'
+                        city='Almaty'
+                        education='KAU'
+                        website='bekapng.kz'/>}/>
+                <Route path='/news' render={() => <News/>}/>
+                <Route path='/music' render={() => <Music/>}/>
+                <Route path='/settings' render={() => <Settings/>}/>
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 

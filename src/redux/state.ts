@@ -1,5 +1,13 @@
+type PropsType = {
+    id: number
+    message: string
+}
+
 
 export let state = {
+    posts: [
+        {id: 1, message: 'texting for posts'},
+    ],
     postData: [
         {id: 1, message: 'hi'},
         {id: 2, message: 'hype'},
@@ -20,3 +28,10 @@ export let state = {
     ]
 }
 
+export const addPost = (postText: string) => {
+    const newPost: PropsType = {
+        id: new Date().getTime(),
+        message: postText
+    }
+    state.posts.push(newPost)
+}
